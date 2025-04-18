@@ -1,0 +1,147 @@
+personal_information:
+  name: "[Prateek]"
+  surname: "[Devaraju]"
+  date_of_birth: "[02/11/1994]"
+  country: "[United Kingdom]"
+  city: "[Leeds]"
+  address: "[20, Glebe Avenue, Kirkstall Lane]"
+  zip_code: "[LS5 3HN]"
+  phone_prefix: "[+44]"
+  phone: "[07383301478]"
+  email: "[pratheek.devraj@gmail.com]"
+  github: "[https://prateek-devaraju.github.io/]"
+  linkedin: "[https://www.linkedin.com/in/prateekdevaraju/]"
+
+education_details:
+  - education_level: "[Masters]"
+    institution: "[Aston University]"
+    field_of_study: "[MBA, International Marketing]"
+    final_evaluation_grade: "[74%]"
+    start_date: "[September 2022]"
+    year_of_completion: "[October 2023]"
+  
+
+experience_details:
+  - position: "[Account Manager]"
+    company: "[The Data City]"
+    employment_period: "[January 2025]"
+    location: "[Leeds, England]"
+    industry: "[Saas]"
+    key_responsibilities:
+      - responsibility_1: "[Manage the entire sales cycle, from nurturing inbound leads to coordinating with procurement teams for deal closure.]"
+      - responsibility_2: "[Schedule regular check-in calls and deliver tailored product updates to ensure client satisfaction and retention.]"
+      - responsibility_3: "[Track and analyse churn rates to implement proactive strategies for improving client retention.]"
+      - responsibility_4: "[Conduct demos for qualified opportunities, presenting solutions aligned with client needs and goals.]"
+      - responsibility_5: "[Began driving upselling efforts targeting the public sector, banks, and insurers to uncover growth opportunities and deliver enhanced value.]"
+    skills_acquired:
+      - "[Negotiation]"
+      - "[Skill]"
+      - "[Skill]"
+
+  - position: "[Business Development Executive]"
+    company: "[The Data City]"
+    employment_period: "[October 2023 - December 2024]"
+    location: "[Leeds, England]"
+    industry: "[SaaS]"
+    key_responsibilities:
+      - responsibility_1: "[Secured 12% of the UK local authorities market share and increased revenue by 25% through strategic prospecting and targeted engagement using ZoomInfo and LinkedIn Sales Navigator.]"
+      - responsibility_2: "[Qualified inbound leads using the SPIN framework, conducted 60+ daily cold calls, and engaged C-level executives, resulting in 100+ successful demos and pipeline growth.]"
+      - responsibility_3: "[Maintained SLAs and tracked opportunities in HubSpot CRM, ensuring smooth handoffs with Account Executives.]"
+      - responsibility_4: "[Represented The Data City at London Tech Week and UKREiiF, networking and pitching offerings to high-value prospects.]"
+
+  - position: "[Senior Funding Consultant]"
+    company: "[Alien Technology Transfer]"
+    employment_period: "[May 2020 - July 2022]"
+    location: "[Hyderabad, India]"
+    industry: "[Management Consulting]"
+    key_responsibilities:
+      - responsibility_1: "[Strategically secured over 100 new SME clients across EU and UK through successful cold calling campaigns, leveraging tools like LinkedIn Sales Navigator and Hunter.io]"
+      - responsibility_2: "[Cultivated relationships with Venture Capitalists, leading to a 60% increase in client sales over 2 years, and conducted comprehensive market research to provide valuable business analysis insights.]"
+      - responsibility_3: "[Presented project analysis feedback to C-level executives, facilitating successful contract negotiations based on the laws of England & Wales.]"
+
+  - position: "[Product Sales Specialist]"
+    company: "[Magnum Networks Support Pvt Ltd]"
+    employment_period: "[January 2018 - April 2020]"
+    location: "[Bengaluru, India]"
+    industry: "[Information Technology]"
+    key_responsibilities:
+      - responsibility_1: "[Utilised consultative sales techniques to generate new business and increase revenue for Magnum Networks Support, showcasing strong new business development skills. ]"
+      - responsibility_2: "[Built and maintained strong client relationships, conducted product demonstrations, and collaborated with cross-functional teams to meet project deadlines.]"
+      - responsibility_3: "[Constructed customised cloud solutions, securing additional enterprise accounts and showcasing expertise in product development. ]"
+    skills_acquired:
+      - "[Skill]"
+      - "[Skill]"
+      - "[Skill]"
+
+projects:
+  - name: "[Project Name]"
+    description: "[Project Description]"
+    link: "[Project Link]"
+
+  - name: "[Project Name]"
+    description: "[Project Description]"
+    link: "[Project Link]"
+
+achievements:
+  - name: "[Key Accounts]"
+    description: "[Successfully secured three key accounts: UKRI, Cabinets Office (Investment Security Unit), and London Borough of Bromley.]"
+  - name: "[Awards]"
+    description: "[Awarded Best Closer at Alien Technology Transfer for outstanding performance in 2021, closing a total of 26 and 29 contracts in Q1 and Q3 respectively.]"
+
+certifications:
+  - name: "[Certification Name]"
+    description: "[Certification Description]"
+  - name: "[Certification Name]"
+    description: "[Certification Description]"
+
+languages:
+  - language: "[Language]"
+    proficiency: "[Proficiency Level]"
+  - language: "[Language]"
+    proficiency: "[Proficiency Level]"
+
+interests:
+  - "[Interest]"
+  - "[Interest]"
+  - "[Interest]"
+
+availability:
+  notice_period: "[1 month]"
+
+salary_expectations:
+  salary_range_usd: "[40000]"
+
+self_identification:
+  gender: "[Male]"
+  pronouns: "[He/Him]"
+  veteran: "[No]"
+  disability: "[No]"
+  ethnicity: "[Indian]"
+
+
+legal_authorization:
+  eu_work_authorization: "[No]"
+  us_work_authorization: "[No]"
+  requires_us_visa: "[Yes]"
+  requires_us_sponsorship: "[Yes]"
+  requires_eu_visa: "[Yes]"
+  legally_allowed_to_work_in_eu: "[No]"
+  legally_allowed_to_work_in_us: "[No]"
+  requires_eu_sponsorship: "[Yes]"
+  canada_work_authorization: "[Yes]"
+  requires_canada_visa: "[Yes]"
+  legally_allowed_to_work_in_canada: "[Yes]"
+  requires_canada_sponsorship: "[Yes]"
+  uk_work_authorization: "[Yes]"
+  requires_uk_visa: "[Yes]"
+  legally_allowed_to_work_in_uk: "[Yes]"
+  requires_uk_sponsorship: "[Yes]"
+
+
+work_preferences:
+  remote_work: "[Yes]"
+  in_person_work: "[Yes]"
+  open_to_relocation: "[Yes]"
+  willing_to_complete_assessments: "[Yes]"
+  willing_to_undergo_drug_tests: "[Yes]"
+  willing_to_undergo_background_checks: "[Yes]"

@@ -1,0 +1,14 @@
+python-dotenv
+loguru
+inquirer
+pyyaml
+selenium
+requests
+pathlib
+numpy
+faiss-cpu
+langchain-core
+langchain-openai
+langchain-community
+langchain-text-splitters
+openai

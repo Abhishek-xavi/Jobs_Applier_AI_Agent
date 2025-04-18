@@ -1,0 +1,148 @@
+personal_information:
+  name: "Prateek "
+  surname: "Devaraju"
+  date_of_birth: "1994-02-11"
+  country: "United Kingdom"
+  city: "London"
+  address: "105 Xchange Point"
+  zip_code: "N7 9HL"
+  phone_prefix: "+44"
+  phone: "7383301478"
+  email: "prateek.devaraju@email.com"
+  github: "https://prateek-devaraju.github.io/"
+  linkedin: "https://linkedin.com/in/prateekdevaraju"
+
+education_details:
+  - education_level: "Masters Degree"
+    institution: "Aston University"
+    field_of_study: "MBA in International Marketing"
+    final_evaluation_grade: "7.8 GPA"
+    start_date: "2022-09"
+    year_of_completion: "2023"
+    exam:
+      Digital Marketing: "A"
+      Market Research: "A-"
+      Brand Management: "A"
+      Consumer Behavior: "A"
+      Marketing Analytics: "B+"
+      Social Media Strategy: "A"
+
+experience_details:
+  - position: "Account Manager"
+    company: "the Data City"
+    employment_period: "2023-Present"
+    location: "United Kingdom, Leeds"
+    industry: "SaaS"
+    key_responsibilities:
+      - responsibility_1: "Managed the entire sales cycle, from nurturing inbound leads to coordinating with procurement teams for deal closure."
+      - responsibility_2: "Schedule regular check-in calls and deliver tailored product updates to ensure client satisfaction and retention."
+      - responsibility_3: "Track and analyse churn rates to implement proactive strategies for improving client retention."
+      - responsibility_4: "Conduct demos for qualified opportunities, presenting solutions aligned with client needs and goals."
+      - responsibility_5: "Maintain detailed records of all interactions and sales activities in the CRM system."
+      - responsibility_6: "Began driving upselling efforts targeting the public sector, banks, and insurers to uncover growth opportunities and deliver enhanced value."
+    skills_acquired:
+      - "Sales"
+      - "Account Management"
+      - "Sales Operations"
+      - "Sales Enablement"
+
+  - position: "Senior Funding Consultant"
+    company: "Alien Technology Transfer"
+    employment_period: "2020-2022"
+    location: "United Kingdom, London"
+    industry: "Management Consulting"
+    key_responsibilities:
+      - responsibility_1: "Strategically secured over 100 new SME clients across EU and UK through successful cold calling campaigns, leveraging tools like LinkedIn Sales Navigator and Hunter.io"
+      - responsibility_2: "Built and maintained strong client relationships, conducted product demonstrations, and collaborated with cross-functional teams to meet project deadlines."
+      - responsibility_3: "Constructed customised cloud solutions, securing additional enterprise accounts and showcasing expertise in product development."
+    skills_acquired:
+      - "Contract Negotiation"
+      - "Cold Calling"
+      - "Account Management"
+
+  - position: "Product Sales Specialist"
+    company: "Magnum Networks Support"
+    employment_period: "2018-2020"
+    location: "India, Bengaluru"
+    industry: "Telecom"
+    key_responsibilities:
+      - responsibility_1: "Utilised consultative sales techniques to generate new business and increase revenue for Magnum Networks Support, showcasing strong new business development skills."
+      - responsibility_2: "Built and maintained strong client relationships, conducted product demonstrations, and collaborated with cross-functional teams to meet project deadlines."
+      - responsibility_3: "Constructed customised cloud solutions, securing additional enterprise accounts and showcasing expertise in product development."
+    skills_acquired:
+      - "Contract Negotiation"
+      - "Cold Calling"
+      - "Account Management"
+      
+
+projects:
+  - name: "Brand Refresh Campaign"
+    description: "Led complete brand refresh for major retail client, resulting in 40% increase in brand recognition"
+    link: "https://portfolio.sarahjohnson.com/brand-refresh"
+
+  - name: "Digital Marketing Workshop Series"
+    description: "Created and conducted workshop series teaching digital marketing basics to small businesses"
+    link: "https://workshops.sarahjohnson.com"
+
+achievements:
+  - name: "Awards"
+    description: "Awarded by Marketing Association of America for innovative campaign strategy"
+  - name: "HubSpot Marketing Certification"
+    description: "Awarded Best Closer at Alien Technology Transfer for outstanding performance in 2021, closing a total of 26 and 29 contracts in Q1 and Q3 respectively."
+
+certifications:
+  - name: "Google Analytics Certification"
+    description: "Advanced proficiency in web analytics and data interpretation"
+  - name: "Facebook Blueprint Certification"
+    description: "Expert-level social media marketing certification"
+
+languages:
+  - language: "English"
+    proficiency: "Native"
+  - language: "Spanish"
+    proficiency: "Intermediate"
+
+interests:
+  - "Digital Marketing Trends"
+  - "Content Creation"
+  - "Brand Strategy"
+  - "Marketing Technology"
+
+availability:
+  notice_period: "1 month"
+
+salary_expectations:
+  salary_range_usd: "85,000-110,000"
+
+self_identification:
+  gender: "Male"
+  pronouns: "he/him"
+  veteran: "No"
+  disability: "No"
+  ethnicity: "Asian Indian"
+
+legal_authorization:
+  eu_work_authorization: "No"
+  us_work_authorization: "No"
+  requires_us_visa: "Yes"
+  requires_us_sponsorship: "No"
+  requires_eu_visa: "Yes"
+  legally_allowed_to_work_in_eu: "No"
+  legally_allowed_to_work_in_us: "Yes"
+  requires_eu_sponsorship: "Yes"
+  canada_work_authorization: "No"
+  requires_canada_visa: "Yes"
+  legally_allowed_to_work_in_canada: "No"
+  requires_canada_sponsorship: "Yes"
+  uk_work_authorization: "No"
+  requires_uk_visa: "Yes"
+  legally_allowed_to_work_in_uk: "No"
+  requires_uk_sponsorship: "Yes"
+
+work_preferences:
+  remote_work: "Yes"
+  in_person_work: "Yes"
+  open_to_relocation: "Yes"
+  willing_to_complete_assessments: "Yes"
+  willing_to_undergo_drug_tests: "Yes"
+  willing_to_undergo_background_checks: "Yes"
