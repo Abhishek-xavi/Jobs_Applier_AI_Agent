@@ -12,6 +12,8 @@ personal_information:
   github: "https://prateek-devaraju.github.io/"
   linkedin: "https://linkedin.com/in/prateekdevaraju"
 
+professional_summary: "Account Manager with 5+ years of experience in sales and client relationship management across SaaS, consulting, and telecom sectors. Proven track record in nurturing client relationships and driving business growth. Skilled in full sales cycle management from lead generation to deal closure and strategic upselling."
+
 education_details:
   - education_level: "Masters Degree"
     institution: "Aston University"
@@ -19,13 +21,9 @@ education_details:
     final_evaluation_grade: "7.8 GPA"
     start_date: "2022-09"
     year_of_completion: "2023"
-    exam:
-      Digital Marketing: "A"
-      Market Research: "A-"
-      Brand Management: "A"
-      Consumer Behavior: "A"
-      Marketing Analytics: "B+"
-      Social Media Strategy: "A"
+    coursework:
+      - "Digital Marketing Strategy and Analytics"
+      - "Consumer Behavior and Market Research"
 
 experience_details:
   - position: "Account Manager"

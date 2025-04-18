@@ -70,6 +70,41 @@ class LLMResumer:
         output = chain.invoke(input_data)
         return output
     
+    def generate_professional_summary(self, job_description: str = "", data = None) -> str:
+        """
+        Generate the professional summary section of the resume.
+        Args:
+            job_description (str): The job description to tailor the summary to.
+            data (dict): The professional summary information to use.
+        Returns:
+            str: The generated professional summary section.
+        """
+        logger.debug("Starting professional summary generation")
+        
+        summary_prompt_template = self._preprocess_template_string(
+            self.strings.prompt_professional_summary
+        )
+        logger.debug(f"Professional summary template: {summary_prompt_template}")
+        
+        prompt = ChatPromptTemplate.from_template(summary_prompt_template)
+        logger.debug(f"Prompt: {prompt}")
+        
+        chain = prompt | self.llm_cheap | StrOutputParser()
+        logger.debug(f"Chain created: {chain}")
+        
+        input_data = {
+            "professional_summary": self.resume.professional_summary,
+            "job_description": job_description or "Not provided"
+        } if data is None else data
+        
+        logger.debug(f"Input data: {input_data}")
+        
+        output = chain.invoke(input_data)
+        logger.debug(f"Chain invocation result: {output}")
+        
+        logger.debug("Professional summary generation completed")
+        return output
+    
     def generate_education_section(self, data = None) -> str:
         """
         Generate the education section of the resume.
@@ -89,9 +124,12 @@ class LLMResumer:
         chain = prompt | self.llm_cheap | StrOutputParser()
         logger.debug(f"Chain created: {chain}")
         
+        # Add coursework from education_details to be used in generation
         input_data = {
-            "education_details": self.resume.education_details
+            "education_details": self.resume.education_details,
+            "job_description": ""
         } if data is None else data
+        
         output = chain.invoke(input_data)
         logger.debug(f"Chain invocation result: {output}")
 
@@ -227,11 +265,6 @@ class LLMResumer:
                 if exp.skills_acquired:
                     skills.update(exp.skills_acquired)
 
-        if self.resume.education_details:
-            for edu in self.resume.education_details:
-                if edu.exam:
-                    for exam in edu.exam:
-                        skills.update(exam.keys())
         prompt = ChatPromptTemplate.from_template(additional_skills_prompt_template)
         chain = prompt | self.llm_cheap | StrOutputParser()
         input_data = {
@@ -245,78 +278,46 @@ class LLMResumer:
 
     def generate_html_resume(self) -> str:
         """
-        Generate the full HTML resume based on the resume object.
+        Generate the complete HTML resume.
         Returns:
             str: The generated HTML resume.
         """
-        def header_fn():
-            if self.resume.personal_information:
-                return self.generate_header()
-            return ""
-
-        def education_fn():
-            if self.resume.education_details:
-                return self.generate_education_section()
-            return ""
-
-        def work_experience_fn():
-            if self.resume.experience_details:
-                return self.generate_work_experience_section()
-            return ""
-
-        def projects_fn():
-            #if self.resume.projects:
-            #    return self.generate_projects_section()
-            return ""
-
-        def achievements_fn():
-            if self.resume.achievements:
-                return self.generate_achievements_section()
-            return ""
+        # Generate each section of the resume
+        header = self.generate_header()
         
-        def certifications_fn():
-            # if self.resume.certifications:
-            #    return self.generate_certifications_section()
-            return ""
-
-        def additional_skills_fn():
-            if (self.resume.experience_details or self.resume.education_details or
-                self.resume.languages or self.resume.interests):
-                return self.generate_additional_skills_section()
-            return ""
-
-        # Create a dictionary to map the function names to their respective callables
-        functions = {
-            "header": header_fn,
-            "education": education_fn,
-            "work_experience": work_experience_fn,
-            "projects": projects_fn,
-            "achievements": achievements_fn,
-            "certifications": certifications_fn,
-            "additional_skills": additional_skills_fn,
-        }
-
-        # Use ThreadPoolExecutor to run the functions in parallel
-        with ThreadPoolExecutor() as executor:
-            future_to_section = {executor.submit(fn): section for section, fn in functions.items()}
-            results = {}
-            for future in as_completed(future_to_section):
-                section = future_to_section[future]
-                try:
-                    result = future.result()
-                    if result:
-                        results[section] = result
-                except Exception as exc:
-                    logger.error(f'{section} raised an exception: {exc}')
-        full_resume = "<body>\n"
-        full_resume += f"  {results.get('header', '')}\n"
-        full_resume += "  <main>\n"
-        full_resume += f"    {results.get('education', '')}\n"
-        full_resume += f"    {results.get('work_experience', '')}\n"
-        full_resume += f"    {results.get('projects', '')}\n"
-        full_resume += f"    {results.get('achievements', '')}\n"
-        full_resume += f"    {results.get('certifications', '')}\n"
-        full_resume += f"    {results.get('additional_skills', '')}\n"
-        full_resume += "  </main>\n"
-        full_resume += "</body>"
-        return full_resume
+        professional_summary = ""
+        if self.resume.professional_summary:
+            professional_summary = self.generate_professional_summary()
+        
+        education = ""
+        if self.resume.education_details:
+            education = self.generate_education_section()
+        
+        work_experience = ""
+        if self.resume.experience_details:
+            work_experience = self.generate_work_experience_section()
+        
+        achievements = ""
+        if self.resume.achievements:
+            achievements = self.generate_achievements_section()
+        
+        additional_skills = self.generate_additional_skills_section()
+        
+        # Join the sections in the correct order
+        sections = []
+        if header:
+            sections.append(header)
+        if professional_summary:
+            sections.append(professional_summary)
+        if education:
+            sections.append(education)
+        if work_experience:
+            sections.append(work_experience)
+        if achievements:
+            sections.append(achievements)
+        if additional_skills:
+            sections.append(additional_skills)
+        
+        # Join all the sections together
+        full_html = "\n".join(sections)
+        return full_html

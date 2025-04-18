@@ -1,22 +1,25 @@
 from src.libs.resume_and_cover_builder.template_base import prompt_header_template, prompt_education_template, prompt_working_experience_template, prompt_projects_template, prompt_additional_skills_template, prompt_certifications_template, prompt_achievements_template
 
 prompt_header = """
-Act as an HR expert and resume writer specializing in ATS-friendly resumes. Your task is to create a professional and polished header for the resume. The header should:
+Act as an HR expert and resume writer specializing in ATS-friendly resumes. Your task is to create a professional and polished header for the resume that is tailored to a specific job description. The header should:
 
-1. **Contact Information**: Include your full name, city and country, phone number, email address, LinkedIn profile, and GitHub profile.
+1. **Contact Information**: Include your full name, city and country, phone number, email address, and LinkedIn profile.
 2. **Formatting**: Ensure the contact details are presented clearly and are easy to read.
-
-To implement this:
-- If any of the contact information fields (e.g., LinkedIn profile, GitHub profile) are not provided (i.e., `None`), omit them from the header.
+3. **Important Note**:
+- The header should be concise and professional.
+- If any of the contact information fields (e.g., LinkedIn profile) are not provided (i.e., `None`), omit them from the header.
 
 - **My information:**  
   {personal_information}
+  
+- **Job Description:**
+  {job_description}
 """ + prompt_header_template
 
 prompt_education = """
 Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to articulate the educational background for a resume, ensuring it aligns with the provided job description. For each educational entry, ensure you include:
 
-1. **Institution Name and Location**: Specify the university or educational institution’s name and location.
+1. **Institution Name and Location**: Specify the university or educational institution's name and location.
 2. **Degree and Field of Study**: Clearly indicate the degree earned and the field of study.
 3. **Grade**: Include your Grade if it is strong and relevant.
 4. **Relevant Coursework**: List key courses with their grades to showcase your academic strengths. If no coursework is provided, omit this section from the template.

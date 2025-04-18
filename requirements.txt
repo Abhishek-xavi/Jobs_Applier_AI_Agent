@@ -12,3 +12,6 @@ langchain-openai
 langchain-community
 langchain-text-splitters
 openai
+email-validator
+webdriver-manager
+click

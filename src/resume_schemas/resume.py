@@ -27,6 +27,7 @@ class EducationDetails(BaseModel):
     final_evaluation_grade: Optional[str]
     start_date: Optional[str]
     year_of_completion: Optional[int]
+    coursework: Optional[List[str]] = None
     exam: Optional[Union[List[Dict[str, str]], Dict[str, str]]] = None
 
 
@@ -90,6 +91,7 @@ class LegalAuthorization(BaseModel):
 
 class Resume(BaseModel):
     personal_information: Optional[PersonalInformation]
+    professional_summary: Optional[str] = None
     education_details: Optional[List[EducationDetails]] = None
     experience_details: Optional[List[ExperienceDetails]] = None
     projects: Optional[List[Project]] = None
@@ -108,11 +110,6 @@ class Resume(BaseModel):
         try:
             # Parse the YAML string
             data = yaml.safe_load(yaml_str)
-
-            if 'education_details' in data:
-                for ed in data['education_details']:
-                    if 'exam' in ed:
-                        ed['exam'] = self.normalize_exam_format(ed['exam'])
 
             # Create an instance of Resume from the parsed data
             super().__init__(**data)
@@ -136,7 +133,6 @@ class Resume(BaseModel):
         education_list = []
         for edu in data:
             try:
-                exams = [Exam(name=k, grade=v) for k, v in edu.get('exam', {}).items()]
                 education = EducationDetails(
                     education_level=edu.get('education_level'),
                     institution=edu.get('institution'),
@@ -144,7 +140,6 @@ class Resume(BaseModel):
                     final_evaluation_grade=edu.get('final_evaluation_grade'),
                     start_date=edu.get('start_date'),
                     year_of_completion=edu.get('year_of_completion'),
-                    exam=exams
                 )
                 education_list.append(education)
             except KeyError as e:

@@ -1,36 +1,63 @@
-from src.libs.resume_and_cover_builder.template_base import prompt_header_template, prompt_education_template, prompt_working_experience_template, prompt_projects_template, prompt_achievements_template, prompt_certifications_template, prompt_additional_skills_template
+from src.libs.resume_and_cover_builder.template_base import prompt_header_template, prompt_professional_summary_template, prompt_education_template, prompt_working_experience_template, prompt_projects_template, prompt_achievements_template, prompt_certifications_template, prompt_additional_skills_template
 
 prompt_header = """
 Act as an HR expert and resume writer specializing in ATS-friendly resumes. Your task is to create a professional and polished header for the resume. The header should:
 
-1. **Contact Information**: Include your full name, city and country, phone number, email address, LinkedIn profile, and GitHub profile. Exclude any information that is not provided.
+1. **Contact Information**: Include your full name, city and country, phone number, email address, and LinkedIn profile. Exclude any information that is not provided.
 2. **Formatting**: Ensure the contact details are presented clearly and are easy to read.
 
 - **My information:**  
   {personal_information}
 """ + prompt_header_template
 
+prompt_professional_summary = """
+Act as an HR expert and resume writer specializing in ATS-friendly resumes. Your task is to create a compelling professional summary that highlights your key qualifications for the job. The summary should:
+
+1. **Summary Paragraph**: Create a concise paragraph (3-4 lines) that demonstrates your relevant skills, experience, and value proposition. Focus on:
+   - Your years of relevant experience
+   - Key skills that match the job description
+   - Notable achievements related to the target role
+   - Your unique value proposition
+2. **Job Alignment**: Ensure the summary aligns with the job description provided and showcases how your background makes you a strong fit.
+3. **Keywords**: Incorporate relevant industry and role-specific keywords to pass ATS screening.
+
+- **My draft summary:**  
+  {professional_summary}
+  
+- **Job Description:**
+  {job_description}
+""" + prompt_professional_summary_template
 
 prompt_education = """
 Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to articulate the educational background for a resume. For each educational entry, ensure you include:
 
-1. **Institution Name and Location**: Specify the university or educational institution’s name and location.
+1. **Institution Name and Location**: Specify the university or educational institution's name and location.
 2. **Degree and Field of Study**: Clearly indicate the degree earned and the field of study.
 3. **Grade**: Include your Grade if it is strong and relevant.
-4. **Relevant Coursework**: List key courses with their grades to showcase your academic strengths.
+4. **Timeframe**: Include the start and end years of your education.
+5. **Relevant Coursework**: Format the provided coursework as 2 crisp bullet points (each 6-8 words) that highlight skills/knowledge directly applicable to the target role.
 
 - **My information:**  
   {education_details}
+  
+- **Job Description (if available):**
+  {job_description}
 """+ prompt_education_template
 
 
 prompt_working_experience = """
-Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to detail the work experience for a resume. For each job entry, ensure you include:
+Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to detail the work experience for a resume with a focus on quantifiable impact. Follow these guidelines:
 
 1. **Company Name and Location**: Provide the name of the company and its location.
 2. **Job Title**: Clearly state your job title.
 3. **Dates of Employment**: Include the start and end dates of your employment.
-4. **Responsibilities and Achievements**: Describe your key responsibilities and notable achievements, emphasizing measurable results and specific contributions.
+4. **Impactful Achievements**: 
+   - For the most recent job (the Data City), create 5 bullet points that highlight your contributions.
+   - For the second job (Alien Technology Transfer), create 4 bullet points that highlight your contributions.
+   - For other jobs, create 3 bullet points that highlight your contributions.
+   - Include quantifiable metrics (numbers, percentages, dollar amounts) in most points to demonstrate impact.
+   - Show specific outcomes of your work rather than just listing responsibilities.
+   - Vary your approach - not every bullet needs numbers, but they should all show impact.
 
 - **My information:**  
   {experience_details}
@@ -54,6 +81,7 @@ Act as an HR expert and resume writer with a specialization in creating ATS-frie
 
 1. **Award or Recognition**: Clearly state the name of the award, recognition, scholarship, or honor.
 2. **Description**: Provide a brief description of the achievement and its relevance to your career or academic journey.
+3. **Important Note**: Only include the first 2 achievements from the list provided. Do not include any additional achievements beyond these 2.
 
 - **My information:**  
   {achievements}

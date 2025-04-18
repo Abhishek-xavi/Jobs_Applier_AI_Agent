@@ -52,11 +52,19 @@ prompt_header_template = """
     <p class="fab fa-linkedin">
       <a href="[Link LinkedIn account]">LinkedIn</a>
     </p> 
-    <p class="fab fa-github">
-      <a href="[Link GitHub account]">GitHub</a>
-    </p> 
   </div>
 </header>
+```
+The results should be provided in html format, Provide only the html code for the resume, without any explanations or additional text and also without ```html ```
+"""
+
+prompt_professional_summary_template = """
+- **Template to Use**
+```
+<section id="professional-summary">
+    <h2>Professional Summary</h2>
+    <p class="summary-paragraph">[Concise paragraph of 3-4 lines summarizing your key qualifications, experience, and value proposition for the target role. Make sure to incorporate keywords from the job description.]</p>
+</section>
 ```
 The results should be provided in html format, Provide only the html code for the resume, without any explanations or additional text and also without ```html ```
 """
@@ -68,7 +76,7 @@ prompt_education_template = """
     <h2>Education</h2>
     <div class="entry">
       <div class="entry-header">
-          <span class="entry-name">[University Name]</span>
+          <span class="entry-name"><strong>[University Name]</strong></span>
           <span class="entry-location">[Location] </span>
       </div>
       <div class="entry-details">
@@ -76,11 +84,8 @@ prompt_education_template = """
           <span class="entry-year">[Start Year] – [End Year]  </span>
       </div>
       <ul class="compact-list">
-          <li>[Course Name] → Grade: [Grade]</li>
-          <li>[Course Name] → Grade: [Grade]</li>
-          <li>[Course Name] → Grade: [Grade]</li>
-          <li>[Course Name] → Grade: [Grade]</li>
-          <li>[Course Name] → Grade: [Grade]</li>
+          <li>[Relevant coursework point (6-8 words)]</li>
+          <li>[Relevant coursework point (6-8 words)]</li>
       </ul>
     </div>
 </section>
@@ -95,7 +100,7 @@ prompt_working_experience_template = """
     <h2>Work Experience</h2>
     <div class="entry">
       <div class="entry-header">
-          <span class="entry-name">[Company Name]</span>
+          <span class="entry-name"><strong>[Company Name]</strong></span>
           <span class="entry-location">[Location]</span>
       </div>
       <div class="entry-details">
@@ -103,14 +108,16 @@ prompt_working_experience_template = """
           <span class="entry-year">[Start Date] – [End Date] </span>
       </div>
       <ul class="compact-list">
-          <li>[Describe your responsibilities and achievements in this role] </li>
-          <li>[Describe any key projects or technologies you worked with]  </li>
-          <li>[Mention any notable accomplishments or results]</li>
+          <li>[Responsibility with measurable impact and numbers] </li>
+          <li>[Key achievement with quantifiable results] </li>
+          <li>[Project or initiative with measurable outcome] </li>
+          <li>[Technical skill or business contribution] </li>
+          <li>[Strategic initiative or leadership example] </li>
       </ul>
     </div>
     <div class="entry">
       <div class="entry-header">
-          <span class="entry-name">[Company Name]</span>
+          <span class="entry-name"><strong>[Company Name]</strong></span>
           <span class="entry-location">[Location]</span>
       </div>
       <div class="entry-details">
@@ -118,14 +125,15 @@ prompt_working_experience_template = """
           <span class="entry-year">[Start Date] – [End Date] </span>
       </div>
       <ul class="compact-list">
-          <li>[Describe your responsibilities and achievements in this role] </li>
-          <li>[Describe any key projects or technologies you worked with]  </li>
-          <li>[Mention any notable accomplishments or results]</li>
+          <li>[Responsibility with measurable impact] </li>
+          <li>[Key project or achievement] </li>
+          <li>[Notable contribution or skill demonstrated]</li>
+          <li>[Significant accomplishment or impact]</li>
       </ul>
     </div>
     <div class="entry">
       <div class="entry-header">
-          <span class="entry-name">[Company Name]</span>
+          <span class="entry-name"><strong>[Company Name]</strong></span>
           <span class="entry-location">[Location]</span>
       </div>
       <div class="entry-details">
@@ -133,9 +141,9 @@ prompt_working_experience_template = """
           <span class="entry-year">[Start Date] – [End Date] </span>
       </div>
       <ul class="compact-list">
-          <li>[Describe your responsibilities and achievements in this role] </li>
-          <li>[Describe any key projects or technologies you worked with]  </li>
-          <li>[Mention any notable accomplishments or results]</li>
+          <li>[Responsibility with measurable impact] </li>
+          <li>[Key project or achievement] </li>
+          <li>[Notable contribution or skill demonstrated]</li>
       </ul>
     </div>
 </section>
@@ -187,7 +195,6 @@ prompt_achievements_template = """
 <section id="achievements">
     <h2>Achievements</h2>
     <ul class="compact-list">
-      <li><strong>[Award or Recognition or Scholarship or Honor]:</strong> [Describe]</li>
       <li><strong>[Award or Recognition or Scholarship or Honor]:</strong> [Describe]</li>
       <li><strong>[Award or Recognition or Scholarship or Honor]:</strong> [Describe]</li>
     </ul>

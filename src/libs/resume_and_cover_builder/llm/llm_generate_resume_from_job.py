@@ -47,6 +47,20 @@ class LLMResumeJobDescription(LLMResumer):
             "job_description": self.job_description
         })
 
+    def generate_professional_summary(self) -> str:
+        """
+        Generate the professional summary section of the resume tailored to the job description.
+        Returns:
+            str: The generated professional summary section.
+        """
+        return super().generate_professional_summary(
+            job_description=self.job_description,
+            data={
+                "professional_summary": self.resume.professional_summary,
+                "job_description": self.job_description
+            }
+        )
+
     def generate_education_section(self) -> str:
         """
         Generate the education section of the resume.
@@ -118,11 +132,6 @@ class LLMResumeJobDescription(LLMResumer):
                 if exp.skills_acquired:
                     skills.update(exp.skills_acquired)
 
-        if self.resume.education_details:
-            for edu in self.resume.education_details:
-                if edu.exam:
-                    for exam in edu.exam:
-                        skills.update(exam.keys())
         prompt = ChatPromptTemplate.from_template(additional_skills_prompt_template)
         chain = prompt | self.llm_cheap | StrOutputParser()
         output = chain.invoke({
