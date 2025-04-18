@@ -5,7 +5,7 @@ body {
   color: #333;
   max-width: 700px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 20px 40px;
   font-size: 9pt;
 }
 
@@ -105,13 +105,13 @@ a:hover {
 
 @media print {
   body {
-    padding: 0;
+    padding: 0.5cm 1cm;
     margin: 0;
     font-size: 9pt;
   }
 
   @page {
-    margin: 0.5cm;
+    margin: 0.5cm 1cm;
   }
 
   h1 {

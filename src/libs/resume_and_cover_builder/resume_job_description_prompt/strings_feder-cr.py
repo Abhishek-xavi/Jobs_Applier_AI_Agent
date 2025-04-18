@@ -1,7 +1,7 @@
 from src.libs.resume_and_cover_builder.template_base import prompt_header_template, prompt_education_template, prompt_working_experience_template, prompt_projects_template, prompt_additional_skills_template, prompt_certifications_template, prompt_achievements_template
 
 prompt_header = """
-Act as an HR expert and resume writer specializing in ATS-friendly resumes. Your task is to create a professional and polished header for the resume that is tailored to a specific job description. The header should:
+Act as an HR expert and resume writer specializing in ATS-friendly resumes, using UK English spelling and terminology. Your task is to create a professional and polished header for the resume that is tailored to a specific job description. The header should:
 
 1. **Contact Information**: Include your full name, city and country, phone number, email address, and LinkedIn profile.
 2. **Formatting**: Ensure the contact details are presented clearly and are easy to read.
@@ -17,17 +17,12 @@ Act as an HR expert and resume writer specializing in ATS-friendly resumes. Your
 """ + prompt_header_template
 
 prompt_education = """
-Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to articulate the educational background for a resume, ensuring it aligns with the provided job description. For each educational entry, ensure you include:
+Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes, using UK English spelling and terminology. Your task is to articulate the educational background for a resume, ensuring it aligns with the provided job description. For each educational entry, ensure you include:
 
 1. **Institution Name and Location**: Specify the university or educational institution's name and location.
 2. **Degree and Field of Study**: Clearly indicate the degree earned and the field of study.
 3. **Grade**: Include your Grade if it is strong and relevant.
-4. **Relevant Coursework**: List key courses with their grades to showcase your academic strengths. If no coursework is provided, omit this section from the template.
-
-To implement this, follow these steps:
-- If the exam details are not provided (i.e., `None`), skip the coursework section when filling out the template.
-- If the exam details are available, fill out the coursework section accordingly.
-
+4. **Relevant Coursework**: Format the provided coursework as 2 crisp bullet points (each 6-8 words) that highlight skills/knowledge directly applicable to the target role.
 
 - **My information:**  
   {education_details}
@@ -38,18 +33,33 @@ To implement this, follow these steps:
 
 
 prompt_working_experience = """
-Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to detail the work experience for a resume, ensuring it aligns with the provided job description. For each job entry, ensure you include:
+Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes, using UK English spelling and terminology. Your task is to detail the work experience for a resume, ensuring it aligns with the provided job description. Follow these guidelines:
 
 1. **Company Name and Location**: Provide the name of the company and its location.
 2. **Job Title**: Clearly state your job title.
 3. **Dates of Employment**: Include the start and end dates of your employment.
-4. **Responsibilities and Achievements**: Describe your key responsibilities and notable achievements, emphasizing measurable results and specific contributions.
+4. **Sentence Length**: Ensure each bullet point is between 12-17 words for optimal readability.
+5. **IMPORTANT - BALANCED APPROACH (Quantitative vs. Qualitative)**: 
+   - For the most recent job (the Data City), create 5 bullet points:
+     * EXACTLY 3 points should include numerical metrics/quantifiable achievements (60%)
+     * EXACTLY 2 points should focus on soft skills without numerical metrics (40%)
+   - For the second job (Alien Technology Transfer), create 4 bullet points:
+     * EXACTLY 2 points should include numerical metrics/quantifiable achievements (50%)
+     * EXACTLY 2 points should focus on soft skills without numerical metrics (50%)
+   - For other jobs, create 3 bullet points:
+     * EXACTLY 2 points should include numerical metrics/quantifiable achievements (67%)
+     * EXACTLY 1 point should focus on soft skills without numerical metrics (33%)
 
-Ensure that the descriptions highlight relevant experience and align with the job description.
+6. **Soft Skills Integration**: 
+   - Identify key soft skills from the job description (leadership, teamwork, collaboration, communication, etc.)
+   - Explicitly showcase these soft skills in the non-numerical bullet points
+   - Use action verbs and specific examples to demonstrate these soft skills
+   - Avoid vague claims and ensure each soft skill is tied to a specific achievement or responsibility
 
-To implement this:
-- If any of the work experience details (e.g., responsibilities, achievements) are not provided (i.e., `None`), omit those sections when filling out the template.
-
+7. **Keyword Integration**:
+   - Identify and prioritize keywords from the job description
+   - Incorporate as many relevant keywords as possible across both numerical and soft skill points
+   - Flag any remaining keywords that couldn't be integrated into work experience to be added to the additional skills section
 
 - **My information:**  
   {experience_details}
@@ -81,16 +91,11 @@ To implement this:
 
 
 prompt_achievements = """
-Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to list significant achievements based on the provided job description. For each achievement, ensure you include:
+Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes, using UK English spelling and terminology. Your task is to list significant achievements based on the provided job description. For each achievement, ensure you include:
 
 1. **Award or Recognition**: Clearly state the name of the award, recognition, scholarship, or honor.
 2. **Description**: Provide a brief description of the achievement and its relevance to your career or academic journey.
-
-Ensure that the achievements are clearly presented and effectively highlight your accomplishments.
-
-To implement this:
-- If any of the achievement details (e.g., certifications, descriptions) are not provided (i.e., `None`), omit those sections when filling out the template.
-
+3. **Important Note**: Only include the first 2 achievements from the list provided. Do not include any additional achievements beyond these 2.
 
 - **My information:**  
   {achievements}
@@ -121,18 +126,15 @@ If any of the certification details (e.g., descriptions) are not provided (i.e.,
 
 
 prompt_additional_skills = """
-Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes. Your task is to list additional skills relevant to the job. For each skill, ensure you include:
-Do not add any information beyond what is listed in the provided data fields. Only use the information provided in the 'languages', 'interests', and 'skills' fields to formulate your responses. Avoid extrapolating or incorporating details from the job description or other external sources.
+Act as an HR expert and resume writer with a specialization in creating ATS-friendly resumes, using UK English spelling and terminology. Your task is to list additional skills relevant to the job. Follow these guidelines:
 
-1. **Skill Category**: Clearly state the category or type of skill.
-2. **Specific Skills**: List the specific skills or technologies within each category.
-3. **Proficiency and Experience**: Briefly describe your experience and proficiency level.
-
-Ensure that the skills listed are relevant and accurately reflect your expertise in the field.
-
-To implement this:
-- If any of the skill details (e.g., languages, interests, skills) are not provided (i.e., `None`), omit those sections when filling out the template.
-
+1. **Keyword Alignment**: 
+   - Review any keywords from the job description that weren't included in the work experience.
+   - Prioritize these keywords for inclusion in the additional skills section.
+2. **Skill Organization**:
+   - Group similar skills into logical categories.
+   - List technical skills, soft skills, and languages separately.
+3. **Relevance**: Ensure all listed skills are relevant to the target position.
 
 - **My information:**  
   {languages}
